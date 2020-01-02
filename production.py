@@ -43,17 +43,17 @@ for i in range(0,n):
 	except:
 		uploadcode='''export ZIPNAME="$largest"
 		export CHAT_ID=""
-        export BOT_API_KEY=""
-        curl -F chat_id="$CHAT_ID" -F document=@"out/target/product/q/$ZIPNAME" -F caption="Build completed for device q" https://api.telegram.org/bot$BOT_API_KEY/sendDocument
-        curl -F chat_id="$CHAT_ID" -F document=@"$HOME/cygnus/log.txt" -F caption="Build Log" https://api.telegram.org/bot$BOT_API_KEY/sendDocument
-        rm -rf log.txt device/* vendor/* 
-        make clean'''
-        saveFile69=open("upload.sh",'w')
-        saveFile69.write(str(uploadcode))
-        saveFile69.close()
-    rep = open("upload.sh").read()
-    rep = rep.replace('q',devicename)
-    with open('upload.sh', 'w') as file:
+                export BOT_API_KEY=""
+                curl -F chat_id="$CHAT_ID" -F document=@"out/target/product/q/$ZIPNAME" -F caption="Build completed for device q" https://api.telegram.org/bot$BOT_API_KEY/sendDocument
+                curl -F chat_id="$CHAT_ID" -F document=@"$HOME/cygnus/log.txt" -F caption="Build Log" https://api.telegram.org/bot$BOT_API_KEY/sendDocument
+                rm -rf log.txt device/* vendor/* 
+                make clean'''
+                saveFile69=open("upload.sh",'w')
+                saveFile69.write(str(uploadcode))
+                saveFile69.close()
+        rep = open("upload.sh").read()
+        rep = rep.replace('q',devicename)
+        with open('upload.sh', 'w') as file:
         	file.write(rep)
         
 		
@@ -70,7 +70,7 @@ for i in range(0,n):
 		. b*/e*
 		lunch cygnus_q-userdebug
 		curl -s -X POST https://api.telegram.org/bot$BOT_API_KEY/sendMessage -d text="Build Scheduled for q has started" -d chat_id=$CHAT_ID
-		make bacon -j$(nproc --all)'''
+		make bacon -j$(nproc --all) | tee log.txt'''
     		saves=open("start.sh",'w')
     		saves.write(str(buildcode))
     		saves.close()
