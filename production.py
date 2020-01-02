@@ -65,8 +65,8 @@ for i in range(0,n):
     		chexlast.close()
 	except:
     		buildcode='''#!/bin/bash
-        export CHAT_ID=""
-        export BOT_API_KEY=""
+                export CHAT_ID=""
+                export BOT_API_KEY=""
 		. b*/e*
 		lunch cygnus_q-userdebug
 		curl -s -X POST https://api.telegram.org/bot$BOT_API_KEY/sendMessage -d text="Build Scheduled for q has started" -d chat_id=$CHAT_ID
