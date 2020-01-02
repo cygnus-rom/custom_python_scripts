@@ -48,6 +48,7 @@ for i in range(0,n):
                 curl -F chat_id="$CHAT_ID" -F document=@"out/target/product/q/$ZIPNAME" -F caption="Build completed for device q" https://api.telegram.org/bot$BOT_API_KEY/sendDocument
                 curl -F chat_id="$CHAT_ID" -F document=@"$HOME/cygnus/log.txt" -F caption="Build Log" https://api.telegram.org/bot$BOT_API_KEY/sendDocument
                 rm -rf log.txt device/* vendor/* 
+                cd && cd scripts && bash aio.sh && cd $HOME/cygnus
                 make clean'''
                 saveFile69=open("upload.sh",'w')
                 saveFile69.write(str(uploadcode))
