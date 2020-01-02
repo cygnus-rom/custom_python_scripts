@@ -1,3 +1,4 @@
+# Copyright (C) Dhruv Gera
 import os as e 
 import time
 import glob
